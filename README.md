@@ -39,16 +39,15 @@ $config = array(
             "route" => "/", 
             "method" => "GET|POST", 
             "target" => function($request, $response, $args){
-                $container = $this->getContainer();
-                $container["logger"]->error("test-error");
-                echo "show in log-folder: ".$container["config"]["logger"]["path"];
+                hubert()->container()->logger->error("test-error");
+                echo "show in log-folder: ".hubert()->config()->logger["path"];
             })
     ),
     
 );
 
-$app->loadConfig($config);
-$app->emit($app->run());
+hubert($config);
+hubert()->emit(hubert()->run());
 ```
 
 For more see the example in this repository.
