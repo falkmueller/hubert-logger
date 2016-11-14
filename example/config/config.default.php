@@ -9,8 +9,7 @@ return array(
                 "route" => "/", 
                 "method" => "GET|POST", 
                 "target" => function($request, $response, $args){
-                    $container = hubert()->container();
-                    $container["logger"]->error("test-error");
+                    hubert()->logger->error("test-error");
                     echo "show in log-folder: ".hubert()->config()->logger["path"];
                 }
             ),

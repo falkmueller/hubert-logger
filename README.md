@@ -39,7 +39,7 @@ $config = array(
             "route" => "/", 
             "method" => "GET|POST", 
             "target" => function($request, $response, $args){
-                hubert()->container()->logger->error("test-error");
+                hubert()->logger->error("test-error");
                 echo "show in log-folder: ".hubert()->config()->logger["path"];
             })
     ),
@@ -47,7 +47,7 @@ $config = array(
 );
 
 hubert($config);
-hubert()->emit(hubert()->run());
+hubert()->core()->run();
 ```
 
 For more see the example in this repository.
